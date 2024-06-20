@@ -1,0 +1,44 @@
+<h2>Signal Store:</h2>
+
+<app-items-list
+  [data]="store.list.data()"
+  [isLoading]="store.list.isLoading()"
+  [selectedId]="store.selectedItem.data.id() || ''"
+  (selectionChange)="store.getItem($event)"
+  (refresh)="store.getItems()"
+/>
+
+<app-item-form
+  [data]="store.selectedItem.data()"
+  [isLoading]="store.selectedItem.isLoading()"
+  (save)="store.saveItem($event)"
+/>
+
+@if (!store.list.isLoading() && !store.selectedItem.isLoading()) {
+  <section class="stats">
+    <span>
+      <i>Current selected id (row #): </i>
+      <b>
+        @if (store.selectedItem.data.id(); as id) {
+          {{ id }}
+        } @else {
+          No row selected...
+        }
+      </b>
+    </span>
+    <span>
+      <i># of checked bananas: </i>
+      <b>{{ store.checkedBananaCount() }}</b>
+    </span>
+    <span>
+      <i>Any nerds?: </i>
+      <b>
+        @if (store.anyNerds()) {
+          ✔️
+        } @else {
+          ❌
+        }
+      </b>
+    </span>
+  </section>
+}

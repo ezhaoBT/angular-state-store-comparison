@@ -1,0 +1,24 @@
+:host {
+  min-height: 28.4rem;
+  border: solid 3px #673ab7;
+  padding: 2.4rem;
+}
+
+mat-list-option {
+  background-color: #673ab7;
+
+  .items-list-row {
+    display: flex;
+
+    .items-list-cell {
+      flex: 1 0 0;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+button {
+  margin-top: 1.6rem;
+}

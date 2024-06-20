@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    gap: 1.6rem;
+}
+
+app-item-signal-states,
+app-item-ngrx-states {
+    flex: 1 0 auto;
+}

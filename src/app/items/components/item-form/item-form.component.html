@@ -1,0 +1,30 @@
+@if (isLoading) {
+  <app-loading-mask />
+}
+
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Fruit</mat-label>
+    <mat-select formControlName="fruit">
+      @for (fO of fruitOptions; track fO) {
+        <mat-option [value]="fO.value">{{ fO.text }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox color="primary" formControlName="flag">
+    <span class="checkbox-label">Checked?</span>
+  </mat-checkbox>
+
+  <section class="actions">
+    @if (data.id) {
+      <button mat-raised-button color="primary" (click)="handleEdit()">Edit</button>
+    }
+    <button mat-raised-button color="primary" (click)="handleCreate()">Add New</button>
+  </section>
+</form>

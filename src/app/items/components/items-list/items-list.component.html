@@ -1,0 +1,25 @@
+@if (isLoading) {
+  <app-loading-mask />
+}
+
+<mat-selection-list [multiple]="false" (selectionChange)="handleSelectionChange($event)">
+  @for (item of data; track item) {
+    <mat-list-option [selected]="item.id === selectedId" [value]="item.id">
+      <span class="items-list-row">
+        <span class="items-list-cell">{{ item.name }}</span>
+        <span class="items-list-cell">{{ item.fruit | titlecase }}</span>
+        <span class="items-list-cell">
+          @if (item.flag) {
+            ✔️
+          } @else {
+            ❌
+          }
+        </span>
+      </span>
+    </mat-list-option>
+  }
+</mat-selection-list>
+
+@if (!isLoading) {
+  <button mat-raised-button color="primary" (click)="refresh.emit()">Refresh</button>
+}

@@ -1,0 +1,44 @@
+<h2>NgRx (RxJs) Store:</h2>
+
+<app-items-list
+  [data]="(itemsData$ | async)!"
+  [isLoading]="(itemsIsLoading$ | async)!"
+  [selectedId]="(selectedItemId$ | async) || ''"
+  (selectionChange)="loadItemById($event)"
+  (refresh)="loadItems()"
+/>
+
+<app-item-form
+  [data]="(selectedItemData$ | async)!"
+  [isLoading]="(selectedItemIsLoading$ | async)!"
+  (save)="saveItem($event)"
+/>
+
+@if (!(itemsIsLoading$ | async)! && !(selectedItemIsLoading$ | async)!) {
+  <section class="stats">
+    <span>
+      <i>Current selected id (row #): </i>
+      <b>
+        @if (selectedItemId$ | async; as id) {
+          {{ id }}
+        } @else {
+          No row selected...
+        }
+      </b>
+    </span>
+    <span>
+      <i># of checked bananas: </i>
+      <b>{{ checkedBananaCount$ | async }}</b>
+    </span>
+    <span>
+      <i>Any nerds?: </i>
+      <b>
+        @if (anyNerds$ | async) {
+          ✔️
+        } @else {
+          ❌
+        }
+      </b>
+    </span>
+  </section>
+}

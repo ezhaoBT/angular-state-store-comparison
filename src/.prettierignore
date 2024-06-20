@@ -1,0 +1,7 @@
+CHANGELOG.md
+.angular/
+.github/
+dist/
+node_modules/
+scripts/
+.jfrog/

@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  position: relative;
+}
+
+html,
+body {
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  margin: 4rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-selection-list.mat-mdc-selection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mat-mdc-list-option .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+  border-color: rgb(117, 117, 117) !important
+}

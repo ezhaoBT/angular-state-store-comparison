@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "state-store-comparison": {
+    "angular-state-store-comparison": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/state-store-comparison",
+            "outputPath": "dist/angular-state-store-comparison",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "state-store-comparison:build:production"
+              "buildTarget": "angular-state-store-comparison:build:production"
             },
             "development": {
-              "buildTarget": "state-store-comparison:build:development"
+              "buildTarget": "angular-state-store-comparison:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "state-store-comparison:build"
+            "buildTarget": "angular-state-store-comparison:build"
           }
         },
         "test": {
